@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="shortcut icon" href="./assets/logo/ico.png" type="image/x-icon">
+    <script src="./assets/js/index.js" type="module" defer></script>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+    
+    <template id="login">
+        <div>
+            <div>
+                <form action="javascript:void(0)">
+                    <img src="./assets/logo/combopay.svg">
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <button type="submit">ENTRAR</button>
+                    esquceu sua senha?
+                </form>
+            </div>
+            <div>
+                &copy; 2021 - Digital Combo
+            </div>           
+        </div>
+    </template>
+
+</body>
+</html>
