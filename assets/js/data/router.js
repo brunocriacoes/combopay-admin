@@ -1,4 +1,5 @@
 export default [
     { path: '/', component: { template: '#login' } },
-    { path: '/entrar', component: { template: '<h1>login</h1>' } }
+    { path: '/recuperar-senha', component: { template: '#recuperar_senha' } },
+    { path: '/inicio', component: { template: '#inicio' } }
 ]
