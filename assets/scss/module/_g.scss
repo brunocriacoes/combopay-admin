@@ -1,7 +1,9 @@
 .g {
     display: grid;
     grid-gap: 20px;
-    &-4 {
-        grid-template-columns: repeat(4, 1fr);
+    @for $i from 1 to 24 {
+        &-#{$i} {
+            grid-template-columns: repeat($i, 1fr);
+        }
     }
 }

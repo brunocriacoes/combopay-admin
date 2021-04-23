@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +10,12 @@
     <link rel="shortcut icon" href="./assets/logo/ico.png" type="image/x-icon">
     <script src="./assets/js/index.js" type="module" defer></script>
 </head>
+
 <body>
     <div id="app">
         <router-view></router-view>
     </div>
-    
+
     <template id="login">
         <div class="l-login">
             <div>
@@ -22,12 +24,12 @@
                     <input type="email" placeholder="E-mail" required>
                     <input type="password" placeholder="Senha" required>
                     <button type="submit" class="btn btn--success">ENTRAR</button>
-                    <a href="#/recuperar-senha" class="link link--login">esquceu sua senha?</a> 
+                    <a href="#/recuperar-senha" class="link link--login">esquceu sua senha?</a>
                 </form>
             </div>
             <div>
                 &copy; 2021 - Digital Combo
-            </div>           
+            </div>
         </div>
     </template>
 
@@ -38,18 +40,18 @@
                     <img src="./assets/logo/combopay.svg">
                     <input type="email" placeholder="E-mail" required>
                     <button type="submit" class="btn btn--success">Recuperar senha</button>
-                    <a href="#/" class="link link--login">Entrar</a> 
+                    <a href="#/" class="link link--login">Entrar</a>
                 </form>
             </div>
             <div>
                 &copy; 2021 - Digital Combo
-            </div>           
+            </div>
         </div>
     </template>
 
     <template id="c-menu">
         <div>
-            <a :href="item.link" v-for="item in lista" class="aside__link" >
+            <a :href="item.link" v-for="item in lista" class="aside__link">
                 <img :src="'./assets/icon/'+item.icon">
                 <span>{{ item.text }}</span>
             </a>
@@ -58,14 +60,14 @@
 
     <template id="c-footer">
         <div class="a-footer">
-            <span>&copy; 2021 - Digital Combo   </span>
+            <span>&copy; 2021 - Digital Combo </span>
         </div>
     </template>
 
     <template id="c-header">
         <div class="a-header">
             <div> <img src="./assets/icon/menu.svg"> </div>
-            <div> <img src="./assets/logo/combopay.svg"> </div>                
+            <div> <img src="./assets/logo/combopay.svg"> </div>
             <select id="on-instituicao">
                 <option value="" v-for="com in instituicoes">{{ com.text }}</option>
             </select>
@@ -79,16 +81,16 @@
         <div class="a-aside">
             <div class="aside__link aside__link--gravatar">
                 <img src="./assets/img/gravatar.png">
-                <span> Jose Antonio </span>
+                <span> Jose Antonio</span>
             </div>
-            <c-menu></c-menu>                
+            <c-menu></c-menu>
         </div>
     </template>
 
     <template id="inicio">
         <div class="l-admin">
             <c-aside></c-aside>
-            <c-header></c-header>           
+            <c-header></c-header>
             <div class="a-body"></div>
             <c-footer></c-footer>
         </div>
@@ -97,7 +99,7 @@
     <template id="c-metas">
         <div class="l-admin">
             <c-aside></c-aside>
-            <c-header></c-header>           
+            <c-header></c-header>
             <div class="a-body">
                 <div class="body_box">
                     <h1>Metas 2021</h1>
@@ -105,7 +107,7 @@
                         <div class="g g-4">
                             <div v-for="mes in meses">
                                 <label for=""> {{ mes }} </label>
-                                <input type="text" placeholder="12.000" class="i-monei" >
+                                <input type="text" placeholder="12.000" class="i-monei">
                             </div>
                             <div>
                                 <button type="submit" class="btn btn--success">Salvar</button>
@@ -118,5 +120,224 @@
         </div>
     </template>
 
+    <template id="c-perfil">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Perfil</h1>
+                    <form action="javascript:void(0)" class="form">
+                        <div>
+                            <label for="">Nome</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Telefone</label>
+                                <input type="text" required>
+                            </div>
+                            <div>
+                                <label for="">email</label>
+                                <input type="email" disabled required>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn--success">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="space"></div>
+                    <h2>Alterar senha</h2>
+                    <form action="javascript:void(0)" class="form">
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Digita a senha</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label for="">Repita a senha</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn--success">alterar senha</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-privacidade">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Política de Privacidade</h1>
+                    <form action="javascript:void(0)" class="form">
+                        <div class="editor">
+                            <span>
+                                <img src="./assets/editor/t.svg">
+                                <img src="./assets/editor/b.svg">
+                                <img src="./assets/editor/i.svg">
+                                <img src="./assets/editor/list.svg">
+                            </span>
+                            <div contenteditable="true">
+
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn--success"> Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-config">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Configuração</h1>
+                    <form action="javascript:void(0)" class="form">
+                        <div>
+                            <label for="">Title</label>
+                            <input type="text" maxlength="75">
+                        </div>
+                        <div>
+                            <label for="">Descrição Google</label>
+                            <textarea rows="3" maxlength="146"></textarea>
+                        </div>
+                        <div>
+                            <label for="">Tags Google</label>
+                            <input type="text" maxlength="75">
+                        </div>
+                        <div>
+                            <label for="">Cores</label>
+                            <input type="color">
+                            <input type="color">
+                        </div>
+                        <div>
+                            <label for="">Logo</label> <br>
+                            <img src="./assets/img/default.png" width="75">
+                            <img src="./assets/img/default.png" width="32">
+                        </div>
+                        <div class="space"></div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-instituicao">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Instituição</h1>
+                    <form action="javascript:void(0)" class="form">
+                        <div>
+                            <label for="">Nome Fantazia</label>
+                            <input type="text">
+                        </div>
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Razão Social</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label for="">CPF/CNPJ</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Domínio</label>
+                            <input type="radio" name="type_domains" checked> Subdominio
+                            <input type="radio" name="type_domains"> Domínio Personalizado
+                            <input type="text" placeholder="seusite.com.br">
+                        </div>
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Telefone</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label for="">E-mail</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="g g-2">
+                            <div>
+                                <label for="">CEP</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label for="">Rua/Avenida</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="g g-3">                            
+                            <div>
+                                <label for="">Número</label>
+                                <input type="text">
+                            </div>    
+                            <div>
+                                <label for="">Complemento</label>
+                                <input type="text">
+                            </div>    
+                            <div>
+                                <label for="">Bairro</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label for="">Cidade</label>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <label for="">Estado</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+
+    <template id="c-">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Metas 2021</h1>
+                    <form action="javascript:void(0)" class="form">
+
+                    </form>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+
+
 </body>
+
 </html>
