@@ -19,7 +19,7 @@
     <template id="login">
         <div class="l-login">
             <div>
-                <form action="javascript:void(0)" class="form b-login">
+                <form action="#/inicio" class="form b-login">
                     <img src="./assets/logo/combopay.svg">
                     <input type="email" placeholder="E-mail" required>
                     <input type="password" placeholder="Senha" required>
@@ -287,15 +287,15 @@
                                 <input type="text">
                             </div>
                         </div>
-                        <div class="g g-3">                            
+                        <div class="g g-3">
                             <div>
                                 <label for="">Número</label>
                                 <input type="text">
-                            </div>    
+                            </div>
                             <div>
                                 <label for="">Complemento</label>
                                 <input type="text">
-                            </div>    
+                            </div>
                             <div>
                                 <label for="">Bairro</label>
                                 <input type="text">
@@ -320,6 +320,231 @@
     </template>
 
 
+    <template id="c-script">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1> Codigos </h1>
+                    <form action="javascript:void(0)" class="form">
+                        <div>
+                            <label for="">Header</label>
+                            <textarea rows="7"></textarea>
+                        </div>
+                        <div>
+                            <label for="">Start Body</label>
+                            <textarea rows="7"></textarea>
+                        </div>
+                        <div>
+                            <label for="">Final Body</label>
+                            <textarea rows="7"></textarea>
+                        </div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-modulos">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box body_box--transparent">
+                    <h1>Modulos</h1>
+                    <div class="g g-3">
+                        <div class="modulo" v-for="modulo in modulos">
+                            <img :src="'./assets/logo-modulos/'+modulo.logo">
+                            <span>
+                                <img src="./assets/icon/gear.svg">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-doadores">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Doadores</h1>
+                    <div class="table">
+                        <div v-for="doador in doadores">
+                            <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
+                            <span>{{ doador.name }}</span>
+                            <span>{{ doador.email }}</span>
+                            <span>{{ doador.tel }}</span>
+                            <span>
+                                <a href="" class="table_btn" >
+                                    <img src="./assets/icon/eye.svg">
+                                </a>
+                            </span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-doacoes">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Doações</h1>
+                    <div class="table">
+                        <div v-for="doacao in doacoes">
+                            <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
+                            <span>{{ doacao.name }}</span>
+                            <span>{{ doacao.card }}</span>
+                            <span>{{ doacao.valid }}</span>
+                            <span>{{ doacao.recorrencia }}</span>
+                            <span>{{ doacao.type }}</span>
+                            <span>{{ doacao.data }}</span>
+                            <span>{{ doacao.price | is_price }}</span>
+                            <span>
+                                <span v-if="doacao.status">
+                                    <img src="./assets/icon/success.svg" class="ico_status">
+                                </span>
+                                <span v-else>                                    
+                                    <img src="./assets/icon/error.svg" class="ico_status">
+                                </span>                                
+                            </span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>    
+
+    <template id="c-credenciais">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Credenciais</h1>
+                    <div class="table">
+                        <div v-for="credencial in credenciais">
+                            <span>{{ credencial.name }}</span>
+                            <span>
+                                <i class="tag" v-for="id in credencial.permissao.split(',')">
+                                    {{ id | get_name_by_id }}
+                                </i>
+                            </span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-usuarios">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Usuários</h1>
+                    <div class="table">
+                        <div v-for="user in usuarios">
+                            <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
+                            <span>{{ user.name }}</span>
+                            <span>{{ user.tel }}</span>
+                            <span>{{ user.email }}</span>
+                            <span>
+                                <a href="" class="table_btn">
+                                    <img src="./assets/icon/edit.svg">
+                                    <span>EDITAR</span>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="" class="table_btn table_btn--trash" title="Para acabar use duplo click">
+                                    <img src="./assets/icon/trash.svg">
+                                </a>
+                            </span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-planos">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Planos</h1>
+                    <div class="table">
+                        <div v-for="plano in planos">
+                            <span>{{ plano.name }}</span>
+                            <span>{{ plano.price | is_price }}</span>
+                            <span>
+                                <a href="" class="table_btn">
+                                    <img src="./assets/icon/edit.svg">
+                                    <span>EDITAR</span>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="" class="table_btn table_btn--trash" title="Para acabar use duplo click">
+                                    <img src="./assets/icon/trash.svg">
+                                </a>
+                            </span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-emails">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Emails</h1>
+                    <div class="table">
+                        <div v-for="email in emails">
+                            <span>{{ email.name }}</span>
+                            <span>{{ email.cron  }}</span>
+                            <span>
+                                <a href="" class="table_btn">
+                                    <img src="./assets/icon/edit.svg">
+                                    <span>EDITAR</span>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="" class="table_btn table_btn--trash" title="Para acabar use duplo click">
+                                    <img src="./assets/icon/trash.svg">
+                                </a>
+                            </span>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+    
     <template id="c-">
         <div class="l-admin">
             <c-aside></c-aside>

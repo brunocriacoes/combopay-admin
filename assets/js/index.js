@@ -10,6 +10,14 @@ import perfil from './module/c-perfil.js'
 import privacidade from './module/c-privacidade.js'
 import config from './module/c-config.js'
 import instituicao from './module/c-instituicao.js'
+import script from './module/c-script.js'
+import modulos from './module/c-modulos.js'
+import doadores from './module/c-doadores.js'
+import doacoes from './module/c-doacoes.js'
+import credenciais from './module/c-credenciais.js'
+import usuarios from './module/c-usuarios.js'
+import planos from './module/c-planos.js'
+import emails from './module/c-emails.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -21,6 +29,14 @@ Vue.component('c-perfil', perfil )
 Vue.component('c-privacidade', privacidade )
 Vue.component('c-config', config )
 Vue.component('c-instituicao', instituicao )
+Vue.component('c-script', script )
+Vue.component('c-modulos', modulos )
+Vue.component('c-doadores', doadores )
+Vue.component('c-doacoes', doacoes )
+Vue.component('c-credenciais', credenciais )
+Vue.component('c-usuarios', usuarios )
+Vue.component('c-planos', planos )
+Vue.component('c-emails', emails )
 
 const router = new Router({ routes: router_list })
 

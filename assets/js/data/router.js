@@ -7,4 +7,12 @@ export default [
     { path: '/politica-de-privacidade', component: { template: '<c-privacidade></c-privacidade>' } },
     { path: '/configuracao', component: { template: '<c-config></c-config>' } },
     { path: '/instituicoes', component: { template: '<c-instituicao></c-instituicao>' } },
+    { path: '/script', component: { template: '<c-script></c-script>' } },
+    { path: '/modulos', component: { template: '<c-modulos></c-modulos>' } },
+    { path: '/doadores', component: { template: '<c-doadores></c-doadores>' } },
+    { path: '/doacoes', component: { template: '<c-doacoes></c-doacoes>' } },
+    { path: '/credenciais', component: { template: '<c-credenciais></c-credenciais>' } },
+    { path: '/usuarios', component: { template: '<c-usuarios></c-usuarios>' } },
+    { path: '/planos', component: { template: '<c-planos></c-planos>' } },
+    { path: '/modelo-de-emails', component: { template: '<c-emails></c-emails>' } },
 ]
