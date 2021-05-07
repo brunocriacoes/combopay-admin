@@ -19,10 +19,10 @@
     <template id="login">
         <div class="l-login">
             <div>
-                <form action="#/inicio" class="form b-login">
+                <form action="javascript:void(0)" class="form b-login" @submit="login()">
                     <img src="./assets/logo/combopay.svg">
-                    <input type="email" placeholder="E-mail" required>
-                    <input type="password" placeholder="Senha" required>
+                    <input v-model="email" type="email" placeholder="E-mail" required>
+                    <input v-model="password" type="password" placeholder="Senha" required>
                     <button type="submit" class="btn btn--success">ENTRAR</button>
                     <a href="#/recuperar-senha" class="link link--login">esquceu sua senha?</a>
                 </form>

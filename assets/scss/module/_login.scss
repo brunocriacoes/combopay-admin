@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: center;
     background-image: url(../img/bg.jpg);
+    background-position: center;
+    background-size: cover;
     width: 100%;
     min-height: 100vh;
     grid-template-rows: 1fr 60px;

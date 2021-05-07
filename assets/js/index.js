@@ -18,6 +18,7 @@ import credenciais from './module/c-credenciais.js'
 import usuarios from './module/c-usuarios.js'
 import planos from './module/c-planos.js'
 import emails from './module/c-emails.js'
+import login from './module/c-login.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -37,6 +38,7 @@ Vue.component('c-credenciais', credenciais )
 Vue.component('c-usuarios', usuarios )
 Vue.component('c-planos', planos )
 Vue.component('c-emails', emails )
+Vue.component('c-login', login )
 
 const router = new Router({ routes: router_list })
 
