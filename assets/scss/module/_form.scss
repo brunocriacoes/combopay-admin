@@ -119,3 +119,21 @@
         min-height: 150px;
     }
 }
+.error {
+    display: block;
+    line-height: 30px;
+    background-color: #c0392b;
+    color: #f1c40f;
+    margin-top: 12px;
+    font-size: 11px;
+    border-radius: 5px;
+}
+.success {
+    display: block;
+    line-height: 30px;
+    background-color: #2ecc71;
+    color: #FFF;
+    margin-top: 12px;
+    font-size: 11px;
+    border-radius: 5px;
+}

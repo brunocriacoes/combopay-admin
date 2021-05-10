@@ -24,6 +24,9 @@
                     <input v-model="email" type="email" placeholder="E-mail" required>
                     <input v-model="password" type="password" placeholder="Senha" required>
                     <button type="submit" class="btn btn--success">ENTRAR</button>
+                    <div v-if="message_error" class="error">
+                        E-mail ou senha incorretos
+                    </div>
                     <a href="#/recuperar-senha" class="link link--login">esquceu sua senha?</a>
                 </form>
             </div>
@@ -36,10 +39,11 @@
     <template id="recuperar_senha">
         <div class="l-login">
             <div>
-                <form action="javascript:void(0)" class="form b-login">
+                <form action="javascript:void(0)" @submit="recuperar_senha()" class="form b-login">
                     <img src="./assets/logo/combopay.svg">
-                    <input type="email" placeholder="E-mail" required>
+                    <input type="email" v-model="email" placeholder="E-mail" required>
                     <button type="submit" class="btn btn--success">Recuperar senha</button>
+                    <span v-if="message" class="success" > senha temporaria enviada por email </span>
                     <a href="#/" class="link link--login">Entrar</a>
                 </form>
             </div>

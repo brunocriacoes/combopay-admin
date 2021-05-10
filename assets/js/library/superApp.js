@@ -1,10 +1,10 @@
 class App {
-    base = 'http://api.doardigital.com.br/v1'
+    base = 'https://api.doardigital.com.br/v1'
     options = {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         credentials: "same-origin",
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         cache: 'default',
         body: null
     }
@@ -13,10 +13,38 @@ class App {
         let url = indices.map(i => `${i}=${obj[i]}`).join('&');
         return encodeURI(url);
     }
-    async post(path, data) {
+    async post(path, data, verbo = 'POST') {
         this.options.body = this.obj_to_url(data)
-        try {            
-            let res = await fetch( `${this.base}${path}`, this.options )
+        this.options.method = verbo
+        if (verbo == 'PUT') {
+            this.options.body = JSON.stringify(data)            
+            this.options.body = this.options.headers = { 
+                'Content-Type': 'application/json; charset=UTF-8',
+                'Content-Length' : this.options.body.length
+            }
+        }
+        try {
+            let res = await fetch(`${this.base}${path}`, this.options)
+            let status_code = res.status
+            let res_in_json = await res.json()
+            return { ...res_in_json, status_code }
+        } catch (error) {
+            return {
+                status_code: 500,
+                next: false,
+                message: 'erro catastrófico'
+            }
+        }
+    }
+    async put(path, data) {
+        return await this.post(path, data, 'PUT')
+    }
+    async delete(path, data) {
+        return await this.post(path, data, 'DELETE')
+    }
+    async get(path, data = {}) {
+        try {
+            let res = await fetch(`${this.base}${path}?${this.obj_to_url(data)}`)
             let res_in_json = await res.json()
             return res_in_json
         } catch (error) {
@@ -27,27 +55,19 @@ class App {
             }
         }
     }
-    async get( path, data = {}) {
-        try {            
-            let res = await fetch( `${this.base}${path}?${this.obj_to_url(data)}` )
-            let res_in_json = await res.json()
-            return res_in_json
-        } catch (error) {
-            return {
-                status_code: 500,
-                next: false,
-                message: 'erro catastrófico'
-            }
-        }
-    }
-    async get_admin( id ) {
+    async get_admin(id) {
         let res = await this.get(`/admin/${id}`, {})
     }
-    async login(email, password) {
-        let res = await this.get_admin(1)
-        console.log(res)
-        // let res = await this.post( '/login', { email, password } )
+    async put_admin(data) {
+        let res = await this.put(`/admin/${id}`, data)
     }
+    async login(email, password) {
+        return await this.post('/login', { email, password })
+    }
+    async recuperar_senha(email) {
+        return await this.put(`/admin/nova-senha/${email}`, {} )
+    }
+
 }
 
 export default App;
