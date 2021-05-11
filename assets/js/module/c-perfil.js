@@ -36,13 +36,20 @@ export default {
             console.log(res)
         },
         async atualizar() {
-            console.log(this.App)
+            
             let res = await this.Super.put_admin(this.id, {
                 email: this.email,
                 telefone: this.telefone,
                 nome: this.nome
             })
-        }
+        },
+    },
+    async created() {
+        let res = await this.Super.get_admin( this.cache.user_logged_id )
+        this.id = res.id
+        this.nome = res.nome
+        this.email = res.email
+        this.telefone = res.telefone
     }
 }
 

@@ -59,10 +59,22 @@ class App {
         }
     }
     async get_admin(id) {
-        let res = await this.get(`/admin/${id}`, {})
+        return await this.get(`/admin/${id}`, {})
+    }
+    async cadastro_admin(playload) {
+        return await this.post('/admin', playload)
+    }
+    async all_admins() {
+        return await this.get('/admins', {})
+    }
+    async list_admin_by_institution(institution_id) {
+        return await this.get(`admin/por-instituicao/${institution_id}`, {})
+    }
+    async status_admin(id, status) {
+        return await this.put(`/admin/status/${id}`, { status })
     }
     async put_admin(id, data = {}) {
-        let res = await this.put(`/admin/${id}`, data)
+        return await this.put(`/admin/${id}`, data)
     }
     async login(email, password) {
         return await this.post('/login', { email, password })
@@ -70,13 +82,66 @@ class App {
     async recuperar_senha(email) {
         return await this.put(`/admin/nova-senha/${email}`, {})
     }
-
     async alterar_senha(corruent_user_id, new_pass) {
-        let res = await this.put(`v1/admin/redefinir-senha/${corruent_user_id}`, { password: new_pass })
+        return await this.put(`/admin/recupera-senha/${corruent_user_id}`, { password: new_pass })
     }
-
-
-
+    async get_doador(id) {
+        return await this.get(`/doador/${id}`, {})
+    }
+    async get_doador_by_institution_id(id) {
+        return await this.get(`/doador/por-instituicao/${id}`, {})
+    }
+    async all_doadores() {
+        return await this.get(`/doadores`, {})
+    }
+    async status_doador(id, status) {
+        return await this.put(`/doador/status/${id}`, { status })
+    }
+    async put_doador(id, playload = {}) {
+        return await this.put(`/doador/${id}`, playload)
+    }
+    async post_doador(playload = {}) {
+        return await this.post(`/doador`, playload)
+    }
+    async get_institution(id) {
+        return await this.get(`/instituicao/${id}`, {})
+    }
+    async all_institution() {
+        return await this.get(`/instituicoes`, {})
+    }
+    async status_institution(id, status) {
+        return await this.put(`/instituicao/status/${id}`, { status })
+    }
+    async put_institution(id, playload = {}) {
+        return await this.put(`/instituicao/${id}`, playload)
+    }
+    async post_institution(playload = {}) {
+        return await this.post(`/instituicao`, playload)
+    }
+    async get_credential(id) {
+        return await this.get(`/credencial/${id}`, {})
+    }
+    async all_credential() {
+        return await this.get(`/credencial`, {})
+    }
+    async put_credential(id, playload = {}) {
+        return await this.put(`/credencial/${id}`, playload)
+    }
+    async post_credential(playload = {}) {
+        return await this.post(`/credencial`, playload)
+    }
+    async get_meta(id) {
+        return await this.get(`/meta/${id}`, {})
+    }
+    async all_meta() {
+        return await this.get(`/meta`, {})
+    }
+    async put_meta(id, playload = {}) {
+        return await this.put(`/meta/${id}`, playload)
+    }
+    async post_meta(playload = {}) {
+        return await this.post(`/meta`, playload)
+    }
 }
 
 export default App;

@@ -8,7 +8,7 @@ export default {
             App,
             cache,
             email: 'br.rafael@outlook.com',
-            password: 'IGSNxmDcXO',
+            password: 'wilkZLyedR',
             message_error: false
         }
     },
