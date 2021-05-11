@@ -1,8 +1,8 @@
 class App {
-    base = 'https://api.doardigital.com.br/v1'
+    base = '//api.doardigital.com.br/v1'
     options = {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        credentials: "same-origin",
+        // credentials: "same-origin",
         method: 'POST',
         mode: 'cors',
         cache: 'default',
@@ -17,12 +17,15 @@ class App {
         this.options.body = this.obj_to_url(data)
         this.options.method = verbo
         if (verbo == 'PUT') {
-            this.options.body = JSON.stringify(data)            
-            this.options.body = this.options.headers = { 
-                'Content-Type': 'application/json; charset=UTF-8',
-                'Content-Length' : this.options.body.length
+            this.options.body = JSON.stringify(data)
+            this.options.headers = {
+                // 'Content-Type': 'text/html',
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/json; charset=UTF-8',
+                'Content-Length': this.options.body.length
             }
         }
+        console.log(this.options)
         try {
             let res = await fetch(`${this.base}${path}`, this.options)
             let status_code = res.status
@@ -58,15 +61,21 @@ class App {
     async get_admin(id) {
         let res = await this.get(`/admin/${id}`, {})
     }
-    async put_admin(data) {
+    async put_admin(id, data = {}) {
         let res = await this.put(`/admin/${id}`, data)
     }
     async login(email, password) {
         return await this.post('/login', { email, password })
     }
     async recuperar_senha(email) {
-        return await this.put(`/admin/nova-senha/${email}`, {} )
+        return await this.put(`/admin/nova-senha/${email}`, {})
     }
+
+    async alterar_senha(corruent_user_id, new_pass) {
+        let res = await this.put(`v1/admin/redefinir-senha/${corruent_user_id}`, { password: new_pass })
+    }
+
+
 
 }
 

@@ -131,19 +131,19 @@
             <div class="a-body">
                 <div class="body_box">
                     <h1>Perfil</h1>
-                    <form action="javascript:void(0)" class="form">
+                    <form action="javascript:void(0)" @submit="atualizar()" class="form">
                         <div>
                             <label for="">Nome</label>
-                            <input type="text" required>
+                            <input v-model="nome" type="text" required>
                         </div>
                         <div class="g g-2">
                             <div>
                                 <label for="">Telefone</label>
-                                <input type="text" required>
+                                <input v-model="telefone" type="text" required>
                             </div>
                             <div>
                                 <label for="">email</label>
-                                <input type="email" disabled required>
+                                <input v-model="email" type="email" disabled required>
                             </div>
                             <div>
                                 <button type="submit" class="btn btn--success">Salvar</button>
@@ -152,21 +152,22 @@
                     </form>
                     <div class="space"></div>
                     <h2>Alterar senha</h2>
-                    <form action="javascript:void(0)" class="form">
+                    <form action="javascript:void(0)" @submit="alterar_senha()" class="form">
                         <div class="g g-2">
                             <div>
                                 <label for="">Digita a senha</label>
-                                <input type="text">
+                                <input type="password" v-model="senha" required>
                             </div>
                             <div>
                                 <label for="">Repita a senha</label>
-                                <input type="text">
+                                <input type="password" v-model="confirmar_senha" required>
                             </div>
                             <div>
                                 <button type="submit" class="btn btn--success">alterar senha</button>
                             </div>
                         </div>
                     </form>
+                    <div class="error" v-if="messageAlterPass.status" v-html="messageAlterPass.text">  </div>
                 </div>
             </div>
             <c-footer></c-footer>
