@@ -20,14 +20,14 @@
         <div class="l-login">
             <div>
                 <form action="javascript:void(0)" class="form b-login" @submit="login()">
-                    <img src="./assets/logo/combopay.svg">
+                    <img src="./assets/logo/logo.svg">
                     <input v-model="email" type="email" placeholder="E-mail" required>
                     <input v-model="password" type="password" placeholder="Senha" required>
                     <button type="submit" class="btn btn--success">ENTRAR</button>
                     <div v-if="message_error" class="error">
                         E-mail ou senha incorretos
                     </div>
-                    <a href="#/recuperar-senha" class="link link--login">esquceu sua senha?</a>
+                    <a href="#/recuperar-senha" class="link link--login">esqueceu sua senha?</a>
                 </form>
             </div>
             <div>
@@ -40,7 +40,7 @@
         <div class="l-login">
             <div>
                 <form action="javascript:void(0)" @submit="recuperar_senha()" class="form b-login">
-                    <img src="./assets/logo/combopay.svg">
+                    <img src="./assets/logo/logo.svg">
                     <input type="email" v-model="email" placeholder="E-mail" required>
                     <button type="submit" class="btn btn--success">Recuperar senha</button>
                     <span v-if="message" class="success" > senha temporaria enviada por email </span>
@@ -75,7 +75,7 @@
     <template id="c-header">
         <div class="a-header">
             <div> <img src="./assets/icon/menu.svg"> </div>
-            <div> <img src="./assets/logo/combopay.svg"> </div>
+            <div> <img src="./assets/logo/logo.svg"> </div>
             <select id="on-instituicao">
                 <option value="" v-for="com in instituicoes">{{ com.text }}</option>
             </select>

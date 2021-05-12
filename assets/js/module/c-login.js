@@ -7,8 +7,8 @@ export default {
         return {
             App,
             cache,
-            email: 'br.rafael@outlook.com',
-            password: 'wilkZLyedR',
+            email: '',
+            password: '',
             message_error: false
         }
     },

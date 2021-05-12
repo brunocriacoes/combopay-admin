@@ -5,8 +5,8 @@ export default {
     data: function () {
         return {
             App,
-            email: 'br.rafael@outlook.com',
-            message: true
+            email: '',
+            message: false
         }
     },
     methods: {
