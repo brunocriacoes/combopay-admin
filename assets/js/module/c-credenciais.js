@@ -4,9 +4,9 @@ export default {
     data: function () {
         return {
             credenciais: [
-                { name: 'SuperAdmin', permissao: 'inicio,doadores,doacoes,credenciais,usuarios,instituicoes,planos,metas,modulos,estilo,modelo_de_emails,politica_de_privacidade,configuracao,perfil,script,sair' },
-                { name: 'Admin', permissao: 'inicio,doadores,doacoes,usuarios,planos,metas,modulos,estilo,modelo_de_emails,politica_de_privacidade,configuracao,perfil,script,sair' },
-                { name: 'Ajudante', permissao: 'inicio,doacoes,metas,modulos,estilo,modelo_de_emails,politica_de_privacidade,perfil,sair' },
+                { name: 'SuperAdmin', permissao: 'inicio,doadores,doacoes,credenciais,usuarios,instituicoes,planos,metas,modulos,estilo,modelo_de_emails,politica_de_privacidade,configuracao,perfil,script' },
+                { name: 'Admin', permissao: 'inicio,doadores,doacoes,usuarios,planos,metas,modulos,estilo,modelo_de_emails,politica_de_privacidade,configuracao,perfil,script' },
+                { name: 'Ajudante', permissao: 'inicio,doacoes,metas,modulos,estilo,modelo_de_emails,politica_de_privacidade,perfil' },
             ],
             menus: menus
         }

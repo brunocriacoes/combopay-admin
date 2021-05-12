@@ -14,5 +14,4 @@ export default [
     { id: 'configuracao', text: 'Configuração', icon: 'gear.svg', link: '#/configuracao', feature_flag: true },
     { id: 'perfil', text: 'Perfil', icon: 'perfil.svg', link: '#/perfil', feature_flag: true },
     { id: 'script', text: 'Script', icon: 'code.svg', link: '#/script', feature_flag: true },
-    { id: 'sair', text: 'Sair', icon: 'logout.svg', link: '#/', feature_flag: true },
 ]

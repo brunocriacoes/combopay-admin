@@ -57,7 +57,11 @@
         <div>
             <a :href="item.link" v-for="item in lista" class="aside__link">
                 <img :src="'./assets/icon/'+item.icon">
-                <span>{{ item.text }}</span>
+                <span>{{ item.text }}</span>                
+            </a>
+            <a href="#/" @click="sair()" class="aside__link">
+                <img src="./assets/icon/logout.svg">
+                <span>Sair</span>
             </a>
         </div>
     </template>
@@ -468,8 +472,8 @@
                     <div class="table">
                         <div v-for="user in usuarios">
                             <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
-                            <span>{{ user.name }}</span>
-                            <span>{{ user.tel }}</span>
+                            <span>{{ user.nome }}</span>
+                            <span>{{ user.telefone }}</span>
                             <span>{{ user.email }}</span>
                             <span>
                                 <a href="" class="table_btn">
