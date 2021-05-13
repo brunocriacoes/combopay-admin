@@ -177,6 +177,12 @@
     }
     &--trash {
         background-color: saddlebrown;
+    }    
+    &--edit {
+        background-color: #2ecc71;
+        &:hover {
+            background-color: #27ae60;
+        }
     }
     
 }

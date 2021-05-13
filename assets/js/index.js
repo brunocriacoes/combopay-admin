@@ -20,6 +20,8 @@ import planos from './module/c-planos.js'
 import emails from './module/c-emails.js'
 import login from './module/c-login.js'
 import recuperar from './module/c-recuperar.js'
+import credenciaisNovo from './module/c-credenciais-novo.js'
+import credenciaisEditar from './module/c-credenciais-editar.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -41,6 +43,8 @@ Vue.component('c-planos', planos )
 Vue.component('c-emails', emails )
 Vue.component('c-login', login )
 Vue.component('c-recuperar', recuperar )
+Vue.component('c-credenciais-novo', credenciaisNovo )
+Vue.component('c-credenciais-editar', credenciaisEditar )
 
 const router = new Router({ routes: router_list })
 

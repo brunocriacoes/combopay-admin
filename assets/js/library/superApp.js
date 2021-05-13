@@ -1,7 +1,10 @@
 class App {
     base = '//api.doardigital.com.br/v1'
     options = {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        headers: { 
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization' : `Bearer ${localStorage.getItem('bearer') || ''}`
+        },
         // credentials: "same-origin",
         method: 'POST',
         mode: 'cors',
@@ -18,11 +21,10 @@ class App {
         this.options.method = verbo
         if (verbo == 'PUT') {
             this.options.body = JSON.stringify(data)
-            this.options.headers = {
-                // 'Content-Type': 'text/html',
+            this.options.headers = {                
                 'Content-Type': 'application/json',
-                // 'Content-Type': 'application/json; charset=UTF-8',
-                'Content-Length': this.options.body.length
+                'Content-Length': this.options.body.length,
+                'Authorization' : `Bearer ${localStorage.getItem('bearer') || ''}`
             }
         }
         console.log(this.options)
@@ -122,7 +124,7 @@ class App {
         return await this.get(`/credencial/${id}`, {})
     }
     async all_credential() {
-        return await this.get(`/credencial`, {})
+        return await this.get(`/credenciais`, {})
     }
     async put_credential(id, playload = {}) {
         return await this.put(`/credencial/${id}`, playload)

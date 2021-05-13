@@ -43,7 +43,7 @@
                     <img src="./assets/logo/logo.svg">
                     <input type="email" v-model="email" placeholder="E-mail" required>
                     <button type="submit" class="btn btn--success">Recuperar senha</button>
-                    <span v-if="message" class="success" > senha temporaria enviada por email </span>
+                    <span v-if="message" class="success" > senha temporária enviada por email </span>
                     <a href="#/" class="link link--login">Entrar</a>
                 </form>
             </div>
@@ -445,17 +445,52 @@
             <c-header></c-header>
             <div class="a-body">
                 <div class="body_box">
-                    <h1>Credenciais</h1>
+                    <h1 class="title_form">
+                        Credenciais 
+                        <a href="#/credenciais/nova" class="plus"> 
+                            <img src="./assets/icon/plus.svg"> 
+                        </a> 
+                    </h1>
                     <div class="table">
                         <div v-for="credencial in credenciais">
-                            <span>{{ credencial.name }}</span>
+                            <span>{{ credencial.nome }}</span>
                             <span>
-                                <i class="tag" v-for="id in credencial.permissao.split(',')">
+                                <i class="tag" v-for="id in credencial.recursos.split(',')">
                                     {{ id | get_name_by_id }}
                                 </i>
                             </span>
+                            <a :href="'#/credenciais/editar/'+credencial.id" class="table_btn table_btn--edit">
+                                <img src="./assets/icon/edit.svg"> 
+                            </a>                            
                         </div>                        
                     </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-credenciais-novo">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Adicione uma credencial</h1>
+                    <form action="javascript:void(0)" class="form" @submit="adicionar()">
+                        <label for="">Nome</label>
+                        <input type="text" v-model="title" placeholder="informe um nome" required>
+                        <div class="g g-2">
+                            <label v-for="recurso in menus">
+                                <input type="checkbox" v-model="checks[recurso.id]">
+                                {{ recurso.text }}
+                            </label>
+                        </div>
+                        <div class="space"></div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <c-footer></c-footer>
