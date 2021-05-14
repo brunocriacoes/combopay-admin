@@ -503,7 +503,12 @@
             <c-header></c-header>
             <div class="a-body">
                 <div class="body_box">
-                    <h1>Usuários</h1>
+                    <h1 class="title_form">
+                        Usuários 
+                        <a href="#/usuarios/novo" class="plus"> 
+                            <img src="./assets/icon/plus.svg"> 
+                        </a> 
+                    </h1>
                     <div class="table">
                         <div v-for="user in usuarios">
                             <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
@@ -523,6 +528,59 @@
                             </span>
                         </div>                        
                     </div>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    
+    <template id="c-usuarios-novo">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>Usuário</h1>
+                    <form action="javascript:void(0)" class="form" @submit="adicionar()">
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Nome</label>
+                                <input type="text" v-model="form.nome" placeholder="" required>
+                            </div>
+                            <div>
+                                <label for="">Email</label>
+                                <input type="text" v-model="form.email" placeholder="" required>
+                            </div>
+                        </div>
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Telefone</label>
+                                <input type="text" v-model="form.telefone" placeholder="" required>
+                            </div>
+                            <div>
+                                <label for="">Credencial</label>
+                                <select v-model="form.credencial">
+                                    <option :value="item.id" v-for=" item in credenciais "> {{ item.nome }} </option>
+                                </select>                                
+                            </div>
+                        </div>
+                        <div class="g g-2">
+                            <div>
+                                <label for="">Senha</label>
+                                <input type="text" v-model="form.password" placeholder="" required>
+                            </div>
+                            <div>
+                                <label for="">Confirm Senha</label>
+                                <input type="text" v-model="form.password_confirm" placeholder="" required>
+                            </div>
+                        </div>
+                        <div v-if="error != null "> {{error}} </div>                   
+                        <div class="space"></div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <c-footer></c-footer>

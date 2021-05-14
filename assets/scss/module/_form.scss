@@ -1,5 +1,6 @@
 .form {
     textarea,
+    select,
     input:not([type=checkbox]) {
 
         display: block;
@@ -45,6 +46,16 @@
         background-color: #EEE;
         border-radius: 4px;
         margin-top: 5px;
+    }
+    select {
+        color: #333;
+        padding-left: 0;
+        text-indent: 12px;
+        height: 40px;
+        border-left: 1px solid #FFF;
+        border-top: 1px solid #FFF;
+        border-right: 1px solid #FFF;
+        margin-top: 4px;
     }
 }
 .btn {
