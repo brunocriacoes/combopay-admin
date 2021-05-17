@@ -516,13 +516,13 @@
                             <span>{{ user.telefone }}</span>
                             <span>{{ user.email }}</span>
                             <span>
-                                <a href="" class="table_btn">
+                                <a :href="'#/usuarios/novo/'+user.id" class="table_btn">
                                     <img src="./assets/icon/edit.svg">
                                     <span>EDITAR</span>
                                 </a>
                             </span>
                             <span>
-                                <a href="" class="table_btn table_btn--trash" title="Para acabar use duplo click">
+                                <a @dblclick="del(user.id)" class="table_btn table_btn--trash" title="Para acabar use duplo click">
                                     <img src="./assets/icon/trash.svg">
                                 </a>
                             </span>
@@ -542,7 +542,7 @@
             <div class="a-body">
                 <div class="body_box">
                     <h1>Usuário</h1>
-                    <form action="javascript:void(0)" class="form" @submit="adicionar()">
+                    <form action="javascript:void(0)" class="form" @submit="salvar()">
                         <div class="g g-2">
                             <div>
                                 <label for="">Nome</label>
@@ -565,7 +565,7 @@
                                 </select>                                
                             </div>
                         </div>
-                        <div class="g g-2">
+                        <div class="g g-2" v-if="id == null">
                             <div>
                                 <label for="">Senha</label>
                                 <input type="text" v-model="form.password" placeholder="" required>

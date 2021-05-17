@@ -7,6 +7,7 @@ export default {
             Super,
             credenciais: [],
             error: null,
+            id: null,
             form: {
                 nome: null,
                 email: null,
@@ -22,14 +23,21 @@ export default {
     }, 
     methods: {
         async salvar() {
-            let res = await this.Super.cadastro_admin( this.form )
+            delete this.form.password
+            let res = await this.Super.put_admin( this.id, this.form )
             if( res.status == 'success' ) {
                 window.location.href = "#/credenciais"
             }
+
         }
     },
     async mounted() {
+        this.id = this.$route.params.id
         let res = await this.Super.all_credential()
+        let user = await this.Super.get_admin(this.id )
+        Object.keys(user).forEach(key => {
+            this.form[key] = user[key]
+        });
         this.credenciais = res.data
     }
 }

@@ -18,4 +18,5 @@ export default [
     { path: '/planos', component: { template: '<c-planos></c-planos>' } },
     { path: '/modelo-de-emails', component: { template: '<c-emails></c-emails>' } },
     { path: '/usuarios/novo', component: { template: '<c-usuarios-novo></c-usuarios-novo>' } },
+    { path: '/usuarios/novo/:id', component: { template: '<c-usuarios-edit></c-usuarios-edit>' } },
 ]

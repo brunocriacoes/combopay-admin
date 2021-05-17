@@ -5,16 +5,17 @@ export default {
     data: function () {
         return {
             Super,
-            usuarios: [
-                { name: 'Bruno', tel: '+5500999999999', email: 'br.rafael@outlook.com' },
-                { name: 'Mike', tel: '5500999999999', email: 'mike1987@gmail.com' }, 
-                { name: 'Maria', tel: '5500999999999', email: 'maria.silva@hotmail.com' },
-                { name: 'Jose', tel: '5500999999999', email: 'jose19.matos@gmail.com' },
-            ]
+            usuarios: []
         }
     },
     async mounted() {
         this.usuarios = (await this.Super.all_admins()).data
         // console.log(res)
+    },
+    methods: {
+        del( id ) {
+            console.log( id )
+            this.Super.put_admin( id, { ativo: false } )
+        }
     }
 }
