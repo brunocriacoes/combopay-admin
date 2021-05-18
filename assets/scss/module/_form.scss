@@ -174,3 +174,52 @@
     justify-content: space-between;
     align-items: center;
 }
+.note {
+    display: block;
+    padding: 24px;
+    background-color: #ecf0f1;
+    color: #666e6e;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    h5 {
+        font-weight: 400;
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        padding: 0;
+    }
+}
+.input-note {
+    border: none !important;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, .1);    
+}
+.subdomain {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    align-items: center;
+    padding-right: 12px;
+    font-size: 16px;
+    input {
+        background-color: transparent;
+        margin-bottom: 0px !important;
+        text-align: right;
+        font-size: 16px !important;
+    }
+}
+.loading {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, .7);
+    background-image: url(../img/carregando.gif);
+    backdrop-filter: blur(3px);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 200px;
+}

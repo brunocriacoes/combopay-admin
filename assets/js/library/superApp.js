@@ -1,9 +1,9 @@
 class App {
     base = '//api.doardigital.com.br/v1'
     options = {
-        headers: { 
+        headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization' : `Bearer ${localStorage.getItem('bearer') || ''}`
+            'Authorization': `Bearer ${localStorage.getItem('bearer') || ''}`
         },
         // credentials: "same-origin",
         method: 'POST',
@@ -21,13 +21,12 @@ class App {
         this.options.method = verbo
         if (verbo == 'PUT') {
             this.options.body = JSON.stringify(data)
-            this.options.headers = {                
+            this.options.headers = {
                 'Content-Type': 'application/json',
                 'Content-Length': this.options.body.length,
-                'Authorization' : `Bearer ${localStorage.getItem('bearer') || ''}`
+                'Authorization': `Bearer ${localStorage.getItem('bearer') || ''}`
             }
         }
-        console.log(this.options)
         try {
             let res = await fetch(`${this.base}${path}`, this.options)
             let status_code = res.status
@@ -72,8 +71,8 @@ class App {
     async list_admin_by_institution(institution_id) {
         return await this.get(`admin/por-instituicao/${institution_id}`, {})
     }
-    async status_admin(id, status) {
-        return await this.put(`/admin/status/${id}`, { status })
+    async status_admin(id, ativo) {
+        return await this.put(`/admin/status/${id}`, { ativo })
     }
     async put_admin(id, data = {}) {
         return await this.put(`/admin/${id}`, data)
@@ -96,8 +95,8 @@ class App {
     async all_doadores() {
         return await this.get(`/doadores`, {})
     }
-    async status_doador(id, status) {
-        return await this.put(`/doador/status/${id}`, { status })
+    async status_doador(id, ativo) {
+        return await this.put(`/doador/status/${id}`, { ativo })
     }
     async put_doador(id, playload = {}) {
         return await this.put(`/doador/${id}`, playload)
@@ -111,8 +110,8 @@ class App {
     async all_institution() {
         return await this.get(`/instituicoes`, {})
     }
-    async status_institution(id, status) {
-        return await this.put(`/instituicao/status/${id}`, { status })
+    async status_institution(id, ativo) {
+        return await this.put(`/instituicao/status/${id}`, { ativo })
     }
     async put_institution(id, playload = {}) {
         return await this.put(`/instituicao/${id}`, playload)
@@ -144,6 +143,22 @@ class App {
     async post_meta(playload = {}) {
         return await this.post(`/meta`, playload)
     }
+    async flag_all() {
+        return this.get(`/configuracoes`, {});
+    }
+    async flag_get(id) {
+        return this.get(`/configuracao/${id}`, {});
+    }
+    async flag_put(id, playload) {
+        return this.put(`/configuracao/${id}`, playload);
+    }
+    async flag_post(playload) {
+        return this.post(`/configuracao`, playload);
+    }
+    async flag_get_by_institution(id) {
+        return this.get(`/configuracao/por-instituicao/${id}`, {});
+    }
+
 }
 
 export default App;

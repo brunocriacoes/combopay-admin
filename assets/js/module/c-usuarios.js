@@ -15,7 +15,7 @@ export default {
     methods: {
         del( id ) {
             console.log( id )
-            this.Super.put_admin( id, { ativo: false } )
+            this.Super.status_admin( id, 0 )
         }
     }
 }
