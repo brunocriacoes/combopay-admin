@@ -9,6 +9,8 @@ const cache = {
     get bearer() { return localStorage.getItem('bearer') },    
     set institution(id) { localStorage.setItem('institution', id) },
     get institution() { return localStorage.getItem('institution') },
+    set email(email) { localStorage.setItem('email', email) },
+    get email() { return localStorage.getItem('email') },
 }
 
 export default cache;

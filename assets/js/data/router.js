@@ -1,7 +1,7 @@
 export default [
     { path: '/', component: { template: '<c-login></c-login>' } },
     { path: '/recuperar-senha', component: { template: '<c-recuperar></c-recuperar>' } },
-    { path: '/inicio', component: { template: '#inicio' } },
+    { path: '/inicio', component: { template: '<c-inicio></c-inicio>' } },
     { path: '/metas/:ano', component: { template: '<c-metas></c-metas>' } },
     { path: '/perfil', component: { template: '<c-perfil></c-perfil>' } },
     { path: '/politica-de-privacidade', component: { template: '<c-privacidade></c-privacidade>' } },

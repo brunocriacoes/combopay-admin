@@ -17,6 +17,7 @@ export default {
         async login() {
             let res = await this.App.login(this.email, this.password)
             this.loading = true
+            this.cache.email = this.email
             if (res.status_code == 200) {
                 this.cache.user_logged_name = res?.admin?.nome
                 this.cache.user_logged_id = res?.admin?.id
@@ -30,5 +31,8 @@ export default {
             }
             this.loading = false
         }
+    },
+    mounted() {
+        this.email = this.cache.email
     }
 }

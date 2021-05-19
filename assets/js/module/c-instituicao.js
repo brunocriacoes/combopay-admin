@@ -23,7 +23,9 @@ export default {
                 rua: "Nikolaus Ville",
                 subdominio: "hessel.com",
                 telefone: "+12525089922",
-                cep: '06786-270'
+                cep: '06786-270',
+                birthdate: '',
+                mcc: '1',
             },
             flags: [
                 "bairro",
@@ -41,6 +43,8 @@ export default {
                 "subdominio",
                 "telefone",
                 "cep",
+                "birthdate",
+                "mcc",
             ],
             loading: false,
         }
