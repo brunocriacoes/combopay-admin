@@ -554,6 +554,35 @@
         </div>
     </template>
 
+    <template id="c-sass">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1 class="title_form">
+                        SASS 
+                        <a href="#/sass/novo" class="plus"> 
+                            <img src="./assets/icon/plus.svg"> 
+                        </a> 
+                    </h1>
+                    <div class="table">
+                        <div v-for="sass in playload">
+                            <span>{{ sass.nome_fantasia }}</span>
+                            <a :href="'#/sass/editar/'+sass.id" class="table_btn table_btn--edit">
+                                <img src="./assets/icon/edit.svg"> 
+                            </a>                            
+                        </div>                        
+                    </div>
+                </div>
+                <div class="paginacao">
+                    <a :href="'#/sass/'+step" v-for="step in steps"> {{ step + 1 }} </a>
+                </div>
+            </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
     <template id="c-usuarios">
         <div class="l-admin">
             <c-aside></c-aside>
@@ -682,7 +711,7 @@
                 <div class="body_box">
                     <h1>Emails</h1>
                     <div class="table">
-                        <div v-for="email in emails">
+                        <div v-for="email in playload">
                             <span>{{ email.name }}</span>
                             <span>{{ email.cron  }}</span>
                             <span>

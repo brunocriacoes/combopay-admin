@@ -269,3 +269,27 @@
     color: #FFF;
     cursor: pointer;
 }
+.paginacao {
+    display: block;
+    padding: 20px;
+    text-align: center;
+}
+.paginacao a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    color: $cinza;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #FFF;
+    &:hover {
+        background-color: $azul;
+        color: #FFF;
+    }
+}

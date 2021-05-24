@@ -19,4 +19,7 @@ export default [
     { path: '/modelo-de-emails', component: { template: '<c-emails></c-emails>' } },
     { path: '/usuarios/novo', component: { template: '<c-usuarios-novo></c-usuarios-novo>' } },
     { path: '/usuarios/novo/:id', component: { template: '<c-usuarios-edit></c-usuarios-edit>' } },
+    { path: '/sass', component: { template: '<c-sass></c-sass>' } },
+    { path: '/sass/novo', component: { template: '<c-sass-corruente></c-sass-corruente>' } },
+    { path: '/sass/novo/:id', component: { template: '<c-sass-edit></c-sass-edit>' } },
 ]

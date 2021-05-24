@@ -11,6 +11,7 @@ export default {
             name_flag: 'CONFIG_SITE',
             loading: false,
             playload: {
+                id:null,
                 title: null,
                 description: null,
                 tag: null,
@@ -30,12 +31,14 @@ export default {
             } )
         }else {
             let data = JSON.parse( atob( flag.base64 ) )
+            this.playload.id = data.id
             this.playload.title = data.title
             this.playload.description = data.description
             this.playload.tag = data.tag
             this.playload.cor_main = data.cor_main
             this.playload.cor_secundary = data.cor_secundary
         }
+
     },
     methods: {
         async save() {

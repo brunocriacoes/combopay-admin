@@ -25,6 +25,7 @@ import credenciaisEditar from './module/c-credenciais-editar.js'
 import usuariosNovo from './module/c-usuarios-novo.js'
 import usuariosEdit from './module/c-usuarios-edit.js'
 import cInicio from './module/c-inicio.js'
+import sass from './module/c-sass.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -51,6 +52,7 @@ Vue.component('c-credenciais-editar', credenciaisEditar )
 Vue.component('c-usuarios-novo', usuariosNovo )
 Vue.component('c-usuarios-edit', usuariosEdit )
 Vue.component('c-inicio', cInicio )
+Vue.component('c-sass', sass )
 
 const router = new Router({ routes: router_list })
 
