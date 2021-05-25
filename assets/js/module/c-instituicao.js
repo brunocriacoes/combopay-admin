@@ -1,5 +1,6 @@
 import App from '../library/superApp.js'
 import cache from '../library/cache.js'
+import mccs from '../data/mccs.js'
 const Super = new App
 export default {
     template: "#c-instituicao",
@@ -7,6 +8,7 @@ export default {
         return {
             Super,
             cache,
+            mccs,
             form: {
                 domain_person: 'person',
                 bairro: "Jennyfer Bypass",
@@ -47,6 +49,10 @@ export default {
                 "mcc",
             ],
             loading: false,
+            feedback: {
+                status: null,
+                message: null
+            }
         }
     },
     async mounted() {
@@ -62,6 +68,8 @@ export default {
             let res = await this.Super.put_institution( this.form.id, this.form )
             console.log( res )
             this.loading = false
+            this.feedback.status = res?.status
+            this.feedback.message = res?.message
         }
     }
 }

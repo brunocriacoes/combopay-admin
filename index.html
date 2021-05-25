@@ -338,7 +338,7 @@
                             <div>
                                 <label for="">Código de Atividade</label>
                                 <select v-model="form.mcc">
-                                    <option value="1">Instituição sem fins lucrativos</option>
+                                    <option :value="mcc.id" v-for="mcc in mccs"> {{ mcc.description }}</option>
                                 </select>
                                 
                                 
@@ -376,6 +376,7 @@
                         <div class="g g-3">
                             <button type="submit" class="btn btn--success">Salvar</button>
                         </div>
+                        <span @click="feedback.status=null" v-if="feedback.status != null" :class="feedback.status"> {{ feedback.message }} </span>
                     </form>
                 </div>
             </div>
