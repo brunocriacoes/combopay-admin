@@ -12,7 +12,12 @@ export default {
                 body: '',
                 footer: ''
             },
-            loading: false
+            loading: false,
+            error: {
+                status: false,
+                text: 'Salvo com sucesso',
+                type: 'success'
+            }
         }
     },
     async mounted() {
@@ -40,6 +45,9 @@ export default {
                 instituicao_id: this.cache.institution,
                 base64: btoa( JSON.stringify(this.playload) )
             } )
+            this.error.status = true
+            this.error.text = res.message
+            this.error.type = res.status
             this.loading = false
         }
     }

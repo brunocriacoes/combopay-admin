@@ -182,6 +182,7 @@
                             </div>
                         </div>
                     </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
                     <div class="space"></div>
                     <h2>Alterar senha</h2>
                     <form action="javascript:void(0)" @submit="alterar_senha()" class="form">
@@ -254,22 +255,13 @@
                         <div>
                             <label for="">Tags Google</label>
                             <input type="text" maxlength="75" v-model="playload.tag">
-                        </div>
-                        <div>
-                            <label for="">Cores</label>
-                            <input type="color" v-model="playload.cor_main">
-                            <input type="color" v-model="playload.cor_secundary">
-                        </div>
-                        <div>
-                            <label for="">Logo</label> <br>
-                            <img src="./assets/img/default.png" width="75">
-                            <img src="./assets/img/default.png" width="32">
-                        </div>
+                        </div>                      
                         <div class="space"></div>
                         <div class="g g-3">
                             <button type="submit" class="btn btn--success">Salvar</button>
                         </div>
                     </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
                 </div>
             </div>
             <div class="loading" v-if="loading"></div>
@@ -339,11 +331,8 @@
                                 <label for="">Código de Atividade</label>
                                 <select v-model="form.mcc">
                                     <option :value="mcc.id" v-for="mcc in mccs"> {{ mcc.description }}</option>
-                                </select>
-                                
-                                
+                                </select>                                
                             </div>
-
                         </div>
                         <div class="g g-2">
                             <div>
@@ -410,6 +399,7 @@
                             <button type="submit" class="btn btn--success">Salvar</button>
                         </div>
                     </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
                 </div>
             </div>
             <div class="loading" v-if="loading"></div>

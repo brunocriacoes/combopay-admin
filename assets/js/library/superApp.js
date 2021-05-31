@@ -102,6 +102,7 @@ class App {
         return await this.put(`/doador/${id}`, playload)
     }
     async post_doador(playload = {}) {
+        // cep, sobrenome, dataNascimento, numero
         return await this.post(`/doador`, playload)
     }
     async get_institution(id) {
