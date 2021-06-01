@@ -41,7 +41,6 @@ export default {
                 instituicao_id: this.cache.institution,
                 base64: btoa(JSON.stringify(this.playload))
             })
-            console.log( res )
             this.error.status = true
             this.error.text = res.message
             this.error.type = res.status
@@ -49,6 +48,3 @@ export default {
         }
     }
 }
-
-
-

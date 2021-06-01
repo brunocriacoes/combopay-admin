@@ -217,24 +217,24 @@
             <div class="a-body">
                 <div class="body_box">
                     <h1>Política de Privacidade</h1>
-                    <form action="javascript:void(0)" class="form">
+                    <form action="javascript:void(0)" class="form" @submit="save">
                         <div class="editor">
                             <span>
-                                <img src="./assets/editor/t.svg">
-                                <img src="./assets/editor/b.svg">
-                                <img src="./assets/editor/i.svg">
-                                <img src="./assets/editor/list.svg">
+                                <img src="./assets/editor/t.svg" @click="title">
+                                <img src="./assets/editor/b.svg" @click="bold">
+                                <img src="./assets/editor/i.svg" @click="italic">
+                                <img src="./assets/editor/list.svg" @click="list">
                             </span>
-                            <div contenteditable="true">
-
-                            </div>
+                            <div contenteditable="true" @input="input" v-html="content"></div>
                         </div>
                         <div>
                             <button type="submit" class="btn btn--success"> Salvar</button>
                         </div>
                     </form>
+                    <span v-if="error.status" :class="error.type" > {{error.text}} </span>
                 </div>
             </div>
+            <div class="loading" v-if="loading"></div>
             <c-footer></c-footer>
         </div>
     </template>
@@ -248,7 +248,7 @@
                     <h1>Configuração</h1>
                     <form action="javascript:void(0)" @submit="save()" class="form">
                         <div>
-                            <label for="">Title</label>
+                            <label for="">Titulo do Site</label>
                             <input type="text" maxlength="75" v-model="playload.title">
                         </div>
                         <div>

@@ -11,7 +11,7 @@ export default [
     { id: 'modulos', text: 'Modulos', icon: 'componente.svg', link: '#/modulos', feature_flag: true },
     { id: 'estilo', text: 'Estilo', icon: 'style.svg', link: 'http://sass.doardigital.com.br', feature_flag: true },
     { id: 'modelo_de_emails', text: 'Modelo de E-mails', icon: 'email.svg', link: '#/modelo-de-emails', feature_flag: true },
-    { id: 'politica_de_privacidade', text: 'Política de Privacidade', icon: 'politica-privacida.svg', link: 'http://sass.doardigital.com.br/politica-de-privacidade.html', feature_flag: true },
+    { id: 'politica_de_privacidade', text: 'Política de Privacidade', icon: 'politica-privacida.svg', link: '#/politica-de-privacidade', feature_flag: true },
     { id: 'configuracao', text: 'Configuração', icon: 'gear.svg', link: '#/configuracao', feature_flag: true },
     { id: 'perfil', text: 'Perfil', icon: 'perfil.svg', link: '#/perfil', feature_flag: true },
     { id: 'script', text: 'Script', icon: 'code.svg', link: '#/script', feature_flag: true },
