@@ -149,6 +149,7 @@
                             </div>
                         </div>
                     </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
                 </div>
             </div>
             <c-footer></c-footer>
@@ -201,8 +202,10 @@
                         </div>
                     </form>
                     <div class="error" v-if="messageAlterPass.status" v-html="messageAlterPass.text">  </div>
+                    <span v-if="error2.status" :class="error2.type"> {{error.text}} </span>
                 </div>
             </div>
+            <div class="loading" v-if="loading"></div>
             <c-footer></c-footer>
         </div>
     </template>

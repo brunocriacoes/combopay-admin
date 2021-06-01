@@ -1,3 +1,17 @@
+<div class="loading" v-if="loading"></div>
+
+<span v-if="error.status" :class="error.type"> {{error.text}} </span>
+
+error: {
+    status: false,
+    text: 'Salvo com sucesso',
+    type: 'success'
+}
+
+this.error.status = true
+this.error.text = res.message
+this.error.type = res.status
+
 API
 
 login: email, senha
