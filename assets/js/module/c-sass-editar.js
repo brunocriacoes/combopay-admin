@@ -56,8 +56,7 @@ export default {
         }
     },
     async mounted() {
-        let instituicao = await this.Super.get_institution( this.cache.institution )
-        console.log( instituicao )
+        let instituicao = await this.Super.get_institution( this.step = this.$route.params.id )
         this.flags.forEach( key => {
             this.form[key] = instituicao[key]
         } )
@@ -66,9 +65,9 @@ export default {
         async save() {
             this.loading = true
             let res = await this.Super.put_institution( this.form.id, this.form )
-            console.log( res )
             this.loading = false
             this.feedback.status = res?.status
+            window.location.href = "#/sass/1"
             this.feedback.message = res?.message
         }
     }

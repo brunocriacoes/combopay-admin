@@ -281,7 +281,7 @@
                     <h1>Instituição</h1>
                     <form action="javascript:void(0)" @submit="save()" class="form">
                         <div>
-                            <label for="">Nome Fantazia</label>
+                            <label for="">Nome Fantasia</label>
                             <input type="text" v-model="form.nome_fantasia">
                         </div>
                         <div class="g g-2">
@@ -307,14 +307,14 @@
                         </div>
                         <div class="note" v-if="form.domain_person == 'person'">
                             <input type="text" v-model="form.dominio_personalizado" placeholder="seudominio.com.br"  class="input-note">
-                            <h5>Como Apontar Domínio para Doar Digital</h5>
+                            <h5>Configurar domínio personalizado</h5>
                             <p> 
                                 Entre no painel onde você adiquiriu o dominio, procure por 
-                                zona de DNS e preencha com os dados abaixo 
+                                zona de DNS e preencha com os dados abaixo, antes de salvar as alterações
                             </p>
                             <ul>
-                                <li>ns1.dns-parking.com</li>
-                                <li>Ns2.dns-parking.com</li>
+                                <li>ns33.i7host.com.br</li>
+                                <li>ns34.i7host.com.br</li>
                             </ul>
                         </div>
                         <div class="g g-2">
@@ -420,8 +420,10 @@
                     <div class="g g-3">
                         <div class="modulo" v-for="modulo in modulos">
                             <img :src="'./assets/logo-modulos/'+modulo.logo">
-                            <span>
-                                <img src="./assets/icon/gear.svg">
+                            <span v-if="modulo.feature_flag">
+                                <a :href="modulo.link">
+                                    <img src="./assets/icon/gear.svg">
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -430,6 +432,8 @@
             <c-footer></c-footer>
         </div>
     </template>
+
+
 
     <template id="c-doadores">
         <div class="l-admin">
@@ -555,14 +559,22 @@
             <div class="a-body">
                 <div class="body_box">
                     <h1 class="title_form">
-                        SASS 
+                        SAAS 
                         <a href="#/sass/novo" class="plus"> 
                             <img src="./assets/icon/plus.svg"> 
                         </a> 
                     </h1>
                     <div class="table">
                         <div v-for="sass in playload">
-                            <span>{{ sass.nome_fantasia }}</span>
+                            <span class="w25">{{ sass.nome_fantasia }}</span>
+                            <span class="w25">
+                                <a :href="'//'+sass.dominio" target="_blank" rel="noopener noreferrer">
+                                    {{ sass.dominio }}
+                                </a>
+                            </span>
+                            <span :class="sass.ativo ? 'btn_ativo' : 'btn_inativo'">
+                                {{ sass.ativo ? 'Ativo' : 'Inativo' }}
+                            </span>
                             <a :href="'#/sass/editar/'+sass.id" class="table_btn table_btn--edit">
                                 <img src="./assets/icon/edit.svg"> 
                             </a>                            
@@ -570,7 +582,7 @@
                     </div>
                 </div>
                 <div class="paginacao">
-                    <a :href="'#/sass/'+step" v-for="step in steps"> {{ step + 1 }} </a>
+                    <a :href="'#/sass/'+(+step + 1)" @click="load(step+1)" v-for="step in steps"> {{ step + 1 }} </a>
                 </div>
             </div>
             <c-footer></c-footer>
@@ -630,7 +642,7 @@
                             </div>
                             <div>
                                 <label for="">Email</label>
-                                <input type="text" v-model="form.email" placeholder="" required>
+                                <input type="email" v-model="form.email" placeholder="" required>
                             </div>
                         </div>
                         <div class="g g-2">
@@ -648,14 +660,14 @@
                         <div class="g g-2" v-if="id == null">
                             <div>
                                 <label for="">Senha</label>
-                                <input type="text" v-model="form.password" placeholder="" required>
+                                <input type="password" v-model="form.password" placeholder="" required>
                             </div>
                             <div>
                                 <label for="">Confirm Senha</label>
-                                <input type="text" v-model="form.password_confirm" placeholder="" required>
+                                <input type="password" v-model="form.password_confirm" placeholder="" required>
                             </div>
                         </div>
-                        <div v-if="error != null "> {{error}} </div>                   
+                        <div :class="error != null ? 'error' : 'success'" v-if="error != null "> {{error}} </div>                   
                         <div class="space"></div>
                         <div class="g g-3">
                             <button type="submit" class="btn btn--success">Salvar</button>
@@ -663,6 +675,7 @@
                     </form>
                 </div>
             </div>
+            <div class="loading" v-if="loading"></div>
             <c-footer></c-footer>
         </div>
     </template>
@@ -723,6 +736,30 @@
                     </div>
                 </div>
             </div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+
+    <template id="c-edit-modulo">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h1>{{title}}</h1>
+                    <form action="javascript:void(0)" class="form" @submit="save()">
+                        <div v-for=" input in autoForm ">
+                            <label for="">{{input.label}}</label>
+                            <input type="text" v-model="form[input.name]" placeholder="" required>
+                        </div>
+                        <span v-if="error.status" :class="error.type"> {{error.text}} </span>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="loading" v-if="loading"></div>
             <c-footer></c-footer>
         </div>
     </template>

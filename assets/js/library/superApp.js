@@ -63,7 +63,7 @@ class App {
         return await this.get(`/admin/${id}`, {})
     }
     async cadastro_admin(playload) {
-        return await this.post('/admin', playload)
+        return await this.post('/cadastro', playload)
     }
     async all_admins() {
         return await this.get('/admins', {})
@@ -108,8 +108,8 @@ class App {
     async get_institution(id) {
         return await this.get(`/instituicao/${id}`, {})
     }
-    async all_institution() {
-        return await this.get(`/instituicoes`, {})
+    async all_institution(step = 1) {
+        return await this.get(`/instituicoes`, { page: step })
     }
     async status_institution(id, ativo) {
         return await this.put(`/instituicao/status/${id}`, { ativo })

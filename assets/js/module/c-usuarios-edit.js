@@ -8,6 +8,7 @@ export default {
             credenciais: [],
             error: null,
             id: null,
+            loading: false,
             form: {
                 nome: null,
                 email: null,
@@ -24,10 +25,14 @@ export default {
     methods: {
         async salvar() {
             delete this.form.password
+            this.loading = true
             let res = await this.Super.put_admin( this.id, this.form )
             if( res.status == 'success' ) {
-                window.location.href = "#/credenciais"
+                window.location.href = "#/usuarios"
+            } else {
+                this.error = res.message
             }
+            this.loading = false
 
         }
     },
