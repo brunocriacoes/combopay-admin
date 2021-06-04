@@ -29,6 +29,10 @@ import sass from './module/c-sass.js'
 import sassEditar from './module/c-sass-editar.js'
 import sassNovo from './module/c-sass-novo.js'
 import correios from './module/c-correios.js'
+import mailingBoss from './module/c-mailing-boss.js'
+import Email from './module/c-email.js'
+import rdStation from './module/c-rd-station.js'
+import evendas from './module/c-evendas.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -59,6 +63,10 @@ Vue.component('c-sass', sass )
 Vue.component('c-sass-editar', sassEditar )
 Vue.component('c-sass-novo', sassNovo )
 Vue.component('c-correios', correios )
+Vue.component('c-mailing-boss', mailingBoss )
+Vue.component('c-email', Email )
+Vue.component('c-rd-station', rdStation )
+Vue.component('c-evendas', evendas )
 
 const router = new Router({ routes: router_list })
 

@@ -11,13 +11,12 @@ export default {
             cache,
             Domain,
             form: {},
-            title: 'Correios',
-            flag: 'CORREIOS',
+            title: 'E-vendas',
+            flag: 'E_VENDAS',
             loading: false,
             id: null,
             autoForm: [ 
-                { label: 'Token', name: 'token' },
-                { label: 'Key', name: 'name' },
+                { label: 'Chave', name: 'channel' },
             ],
             error: {
                 status: false,
@@ -27,8 +26,7 @@ export default {
         }
     },
     async mounted() {
-        this.load()
-        
+        this.load()        
     },
     methods: {
         async create_flag() {

@@ -27,7 +27,7 @@ export default {
                 telefone: "+12525089922",
                 cep: '06786-270',
                 birthdate: '',
-                mcc: '1',
+                atividade: '1',
             },
             flags: [
                 "bairro",
@@ -46,7 +46,7 @@ export default {
                 "telefone",
                 "cep",
                 "birthdate",
-                "mcc",
+                "atividade",
             ],
             loading: false,
             feedback: {

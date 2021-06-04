@@ -332,7 +332,7 @@
                             </div>
                             <div>
                                 <label for="">Código de Atividade</label>
-                                <select v-model="form.mcc">
+                                <select v-model="form.atividade">
                                     <option :value="mcc.id" v-for="mcc in mccs"> {{ mcc.description }}</option>
                                 </select>                                
                             </div>
@@ -752,11 +752,11 @@
                             <label for="">{{input.label}}</label>
                             <input type="text" v-model="form[input.name]" placeholder="" required>
                         </div>
-                        <span v-if="error.status" :class="error.type"> {{error.text}} </span>
                         <div class="g g-3">
                             <button type="submit" class="btn btn--success">Salvar</button>
                         </div>
                     </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
                 </div>
             </div>
             <div class="loading" v-if="loading"></div>

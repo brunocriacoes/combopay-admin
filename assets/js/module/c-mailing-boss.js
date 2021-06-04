@@ -11,13 +11,13 @@ export default {
             cache,
             Domain,
             form: {},
-            title: 'Correios',
-            flag: 'CORREIOS',
+            title: 'Mailing Boss',
+            flag: 'MAILING_BOSS',
             loading: false,
             id: null,
             autoForm: [ 
                 { label: 'Token', name: 'token' },
-                { label: 'Key', name: 'name' },
+                { label: 'UID', name: 'uid' },
             ],
             error: {
                 status: false,
