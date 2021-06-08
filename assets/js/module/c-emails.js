@@ -9,18 +9,18 @@ export default {
         return {
             Super,
             cache,
+            templates_emails,
             playload: templates_emails,
-            flag: 'MAILS_TEMPLATE',
+            flag: 'ALL_MAIL_TEMPLATE',
         }
     },
     async mounted() {
-        this.load()
-       
+        this.load()       
     },
     methods: {
         async create_flag() {
             let playload = {
-                base64: btoa(JSON.stringify(this.playload)),
+                base64: btoa(JSON.stringify(this.templates_emails)),
                 flag: this.flag,
                 instituicao_id: this.cache.institution,
                 ativo: 1,
@@ -35,7 +35,7 @@ export default {
                 await this.load()
                 return
             }
-            this.playload = JSON.parse( atob( flag.base64 ) )
+            this.playload = JSON.parse( atob( flag.base64.replace(/\s/gi, '+') ) )
         },
     }
 }

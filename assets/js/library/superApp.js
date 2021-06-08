@@ -14,6 +14,7 @@ class App {
     obj_to_url(obj) {
         let indices = Object.keys(obj);
         let url = indices.map(i => `${i}=${obj[i]}`).join('&');
+        // return url;
         return encodeURI(url);
     }
     async post(path, data, verbo = 'POST') {

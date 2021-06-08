@@ -33,6 +33,7 @@ import mailingBoss from './module/c-mailing-boss.js'
 import Email from './module/c-email.js'
 import rdStation from './module/c-rd-station.js'
 import evendas from './module/c-evendas.js'
+import emailsEdit from './module/c-emails-edit.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -67,6 +68,7 @@ Vue.component('c-mailing-boss', mailingBoss )
 Vue.component('c-email', Email )
 Vue.component('c-rd-station', rdStation )
 Vue.component('c-evendas', evendas )
+Vue.component('c-emails-edit', emailsEdit )
 
 const router = new Router({ routes: router_list })
 

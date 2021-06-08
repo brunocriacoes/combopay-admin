@@ -508,14 +508,17 @@
                     </h1>
                     <div class="table">
                         <div v-for="credencial in credenciais">
-                            <span>{{ credencial.nome }}</span>
-                            <span>
+                            <span class="w25">{{ credencial.nome }}</span>
+                            <span class="w-50">
                                 <i class="tag" v-for="id in credencial.recursos.split(',')">
                                     {{ id | get_name_by_id }}
                                 </i>
                             </span>
-                            <a :href="'#/credenciais/editar/'+credencial.id" class="table_btn table_btn--edit">
+                            <a :href="'#/credenciais/editar/'+credencial.id" class="table_btn table_btn--edit w-40">
                                 <img src="./assets/icon/edit.svg"> 
+                            </a>    
+                            <a  @dblclick="apagar( credencial.id )" title="Para Apagar de duplo click" class="table_btn table_btn--trash w-40">
+                                <img src="./assets/icon/trash.svg"> 
                             </a>                            
                         </div>                        
                     </div>
@@ -721,7 +724,7 @@
                         <div v-for="email in playload">
                             <span>{{ email.cat }}</span>
                             <span>
-                                <a href="" class="table_btn">
+                                <a :href="'#/modelo-de-emails/'+email.id" class="table_btn">
                                     <img src="./assets/icon/edit.svg">
                                     <span>EDITAR</span>
                                 </a>
@@ -746,6 +749,38 @@
                             <label for="">{{input.label}}</label>
                             <input type="text" v-model="form[input.name]" placeholder="" required>
                         </div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
+                </div>
+            </div>
+            <div class="loading" v-if="loading"></div>
+            <c-footer></c-footer>
+        </div>
+    </template>
+    
+    <template id="c-emails-edit">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h2> {{ title }} </h2>
+                    <small> {{ cat }} </small>
+                    <form action="javascript:void(0)" class="form" @submit="save()">
+                        <div>
+                            <input type="text" v-model="title" placeholder="" required>
+                        </div>
+                        <div>
+                            <textarea v-model="text" rows="3"></textarea>
+                        </div>
+                        <p>Você pode usar as seguintes Tags:</p>
+                        <span>
+                            <span class="tag" v-for="tag in tags">{{tag}}</span>
+                        </span>
+                        <div class="space"></div>
                         <div class="g g-3">
                             <button type="submit" class="btn btn--success">Salvar</button>
                         </div>
