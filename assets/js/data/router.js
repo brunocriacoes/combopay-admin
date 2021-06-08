@@ -15,6 +15,8 @@ export default [
     { path: '/credenciais/nova', component: { template: '<c-credenciais-novo></c-credenciais-novo>' } },
     { path: '/credenciais/editar/:id', component: { template: '<c-credenciais-editar></c-credenciais-editar>' } },
     { path: '/planos', component: { template: '<c-planos></c-planos>' } },
+    { path: '/planos/novo', component: { template: '<c-planos-novo></c-planos-novo>' } },
+    { path: '/planos/editar/:id', component: { template: '<c-planos-editar></c-planos-editar>' } },
     { path: '/modelo-de-emails', component: { template: '<c-emails></c-emails>' } },
     { path: '/modelo-de-emails/:id', component: { template: '<c-emails-edit></c-emails-edit>' } },
     { path: '/usuarios', component: { template: '<c-usuarios></c-usuarios>' } },

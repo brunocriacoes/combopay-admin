@@ -27,8 +27,28 @@ export default {
                 telefone: null,
                 cep: null,
                 birthdate: null,
-                mcc: '1',
-            },
+                atividade: '1',
+            },          
+            // form: {
+            //     domain_person: 'person',
+            //     bairro: 'b',
+            //     cidade: 'b',
+            //     cnpj: 'b',
+            //     complemento: 'b',
+            //     dominio: 'brc.com',
+            //     dominio_personalizado: true,
+            //     email: 'b',
+            //     estado: 'b',
+            //     id: 1,
+            //     nome_fantasia: 'b',
+            //     razao_social: 'b',
+            //     rua: 'b',
+            //     subdominio: 'brc',
+            //     telefone: 'b',
+            //     cep: 'b',
+            //     birthdate: 'b',
+            //     atividade: '1',
+            // },
             loading: false,
             feedback: {
                 status: null,
@@ -42,6 +62,7 @@ export default {
     methods: {
         async save() {
             this.loading = true
+            this.form.dominio_personalizado = true
             let res = await this.Super.post_institution( this.form )
             console.log(res)
             this.loading = false

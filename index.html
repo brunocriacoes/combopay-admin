@@ -95,7 +95,7 @@
                 <div class="g g-3">
                     <div class="resumo" v-for="item in resumos" >
                         <div :style="{backgroundColor: item.color}">
-                            <img src="./assets/icon/do.svg">
+                            <img :src="'./assets/icon/'+item.ico">
                         </div>
                         <span>
                             <small>{{item.label}}</small>
@@ -306,7 +306,7 @@
                             </div>
                         </div>
                         <div class="note" v-if="form.domain_person == 'person'">
-                            <input type="text" v-model="form.dominio_personalizado" placeholder="seudominio.com.br"  class="input-note">
+                            <input type="text" v-model="form.dominio" placeholder="seudominio.com.br"  class="input-note">
                             <h5>Configurar domínio personalizado</h5>
                             <p> 
                                 Entre no painel onde você adiquiriu o dominio, procure por 
@@ -689,19 +689,24 @@
             <c-header></c-header>
             <div class="a-body">
                 <div class="body_box">
-                    <h1>Planos</h1>
+                    <h1 class="title_form">
+                        Planos 
+                        <a href="#/planos/novo" class="plus"> 
+                            <img src="./assets/icon/plus.svg"> 
+                        </a> 
+                    </h1>
                     <div class="table">
                         <div v-for="plano in planos">
                             <span>{{ plano.name }}</span>
                             <span>{{ plano.price | is_price }}</span>
                             <span>
-                                <a href="" class="table_btn">
+                                <a :href="'#/planos/editar/'+plano.id" class="table_btn">
                                     <img src="./assets/icon/edit.svg">
                                     <span>EDITAR</span>
                                 </a>
                             </span>
                             <span>
-                                <a href="" class="table_btn table_btn--trash" title="Para acabar use duplo click">
+                                <a href="javascript:void(0)" @dblclick="apagar( plano.id )" class="table_btn table_btn--trash" title="Para acabar use duplo click">
                                     <img src="./assets/icon/trash.svg">
                                 </a>
                             </span>
@@ -781,6 +786,34 @@
                             <span class="tag" v-for="tag in tags">{{tag}}</span>
                         </span>
                         <div class="space"></div>
+                        <div class="g g-3">
+                            <button type="submit" class="btn btn--success">Salvar</button>
+                        </div>
+                    </form>
+                    <span v-if="error.status" :class="error.type"> {{error.text}} </span>
+                </div>
+            </div>
+            <div class="loading" v-if="loading"></div>
+            <c-footer></c-footer>
+        </div>
+    </template> 
+    
+    <template id="c-planos-novo">
+        <div class="l-admin">
+            <c-aside></c-aside>
+            <c-header></c-header>
+            <div class="a-body">
+                <div class="body_box">
+                    <h2> Plano </h2>
+                    <form action="javascript:void(0)" class="form" @submit="save()">
+                        <div>
+                            <label for="">Nome</label>
+                            <input type="text" v-model="form.nome" placeholder="" required>
+                        </div>
+                        <div>
+                            <label for="">Valor</label>
+                            <input type="text" v-model="form.valor" placeholder="" required>
+                        </div>
                         <div class="g g-3">
                             <button type="submit" class="btn btn--success">Salvar</button>
                         </div>

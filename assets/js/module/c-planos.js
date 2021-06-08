@@ -3,11 +3,16 @@ export default {
     data: function () {
         return {
             planos: [
-                { name: 'Bronze', price: 25 },
-                { name: 'Bronze', price: 50 },
-                { name: 'Bronze', price: 100 },
-                { name: 'Bronze', price: 200 },
+                { name: 'Bronze', price: 25, id: '1' },
+                { name: 'Bronze', price: 50, id: '1' },
+                { name: 'Bronze', price: 100, id: '1' },
+                { name: 'Bronze', price: 200, id: '1' },
             ],
+        }
+    },
+    methods: {
+        async apagar( id ) {
+
         }
     },
     filters: {

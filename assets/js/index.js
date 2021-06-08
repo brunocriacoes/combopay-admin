@@ -34,6 +34,8 @@ import Email from './module/c-email.js'
 import rdStation from './module/c-rd-station.js'
 import evendas from './module/c-evendas.js'
 import emailsEdit from './module/c-emails-edit.js'
+import planosNovo from './module/c-planos-novo.js'
+import planosEditar from './module/c-planos-editar.js'
 
 Vue.use(Router)
 Vue.component('c-menu', menu )
@@ -69,6 +71,8 @@ Vue.component('c-email', Email )
 Vue.component('c-rd-station', rdStation )
 Vue.component('c-evendas', evendas )
 Vue.component('c-emails-edit', emailsEdit )
+Vue.component('c-planos-novo', planosNovo )
+Vue.component('c-planos-editar', planosEditar )
 
 const router = new Router({ routes: router_list })
 

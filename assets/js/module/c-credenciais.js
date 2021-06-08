@@ -22,7 +22,6 @@ export default {
     },
     methods: {
         async apagar( id ) {
-            console.log( id )
             this.Super.put_credential( id, { ativo: false } )
         }
     }
