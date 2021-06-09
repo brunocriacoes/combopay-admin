@@ -145,6 +145,7 @@ class App {
     async post_meta(playload = {}) {
         return await this.post(`/meta`, playload)
     }
+
     async flag_all() {
         return this.get(`/configuracoes`, {});
     }
@@ -160,6 +161,26 @@ class App {
     async flag_get_by_institution(id) {
         return this.get(`/configuracao/por-instituicao/${id}`, {});
     }
+    
+    async plano_all() {
+        return this.get(`/zoop/planos`, {});
+    }
+    async plano_get(id) {
+        return this.get(`/zoop/plano/${id}`, {});
+    }
+    async plano_get_by_mkt(id) {
+        return this.get(`/zoop/plano/por-marketplace/${id}`, {});
+    }
+    async plano_get_by_institution(id) {
+        return this.get(`/zoop/plano/por-instituicao/${id}`, {});
+    }
+    async plano_put(id, playload) {
+        return this.put(`/zoop/plano/${id}`, playload);
+    }
+    async plano_post(playload) {
+        return this.post(`/zoop/plano`, playload);
+    }
+
 
 }
 

@@ -11,7 +11,7 @@ export default {
             cache,
             templates_emails,
             playload: templates_emails,
-            flag: 'ALL_MAIL_TEMPLATE',
+            flag: 'ALL_EMAIL_TEMPLATE',
         }
     },
     async mounted() {

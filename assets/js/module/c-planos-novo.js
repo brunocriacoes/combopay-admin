@@ -10,8 +10,20 @@ export default {
             cache,
             form: {
                 nome: null,
-                valor: null,
+                frequency: "daily",
+                interval: null,
+                duration: null,
+                currency: "BRL",
+                description: null,
+                amount: null,
+                instituicao_id: "6cf4bb1e78c6428786fc8fe6ddada3a6"
             },
+            frequency: [
+                { id: "daily", label: "Diaria" },
+                { id: "monthly", label: "Mensal" },
+                { id: "weekly", label: "Semestral" },
+                { id: "anualy", label: "Anual" },
+            ],
             loading: false,
             error: {
                 status: false,
@@ -20,12 +32,18 @@ export default {
             }
         }
     },
+    async mounted() {
+        this.form.institution_id = '6cf4bb1e78c6428786fc8fe6ddada3a6'
+        // this.institution_id = this.cache.institution
+
+    },
     methods: {
 
         async save() {
             this.loading = true
 
-            // let res = await this.Super.flag_put(this.flag_id, playload )
+            let res = await this.Super.plano_post( this.form )
+            window.location.href = '#/planos'
 
             this.error.status = true
             this.error.text = res?.message
