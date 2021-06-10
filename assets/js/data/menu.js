@@ -7,6 +7,8 @@ export default [
     { id: 'sass', text: 'Saas', icon: 'instituicai.svg', link: '#/sass/1', feature_flag: true },
     { id: 'instituicoes', text: 'Instituição', icon: 'instituicai.svg', link: '#/instituicoes', feature_flag: true },
     { id: 'planos', text: 'Planos', icon: 'planos.svg', link: '#/planos', feature_flag: true },
+    { id: 'divisao', text: 'Divisão Pagamento', icon: 'coins.svg', link: '#/divisao-pagamento', feature_flag: true },
+    { id: 'cupom', text: 'Cupom', icon: 'cupom.svg', link: '#/cupons', feature_flag: true },
     { id: 'metas', text: 'Metas', icon: 'metas.svg', link: '#/metas/2021', feature_flag: true },
     { id: 'modulos', text: 'Modulos', icon: 'componente.svg', link: '#/modulos', feature_flag: true },
     { id: 'estilo', text: 'Estilo', icon: 'style.svg', link: 'http://sass.doardigital.com.br', feature_flag: true },
@@ -14,5 +16,6 @@ export default [
     { id: 'politica_de_privacidade', text: 'Política de Privacidade', icon: 'politica-privacida.svg', link: '#/politica-de-privacidade', feature_flag: true },
     { id: 'configuracao', text: 'Configuração', icon: 'gear.svg', link: '#/configuracao', feature_flag: true },
     { id: 'perfil', text: 'Perfil', icon: 'perfil.svg', link: '#/perfil', feature_flag: true },
+    { id: 'meu_plano', text: 'Meu Plano', icon: 'doacoes-creditos-249e90.svg', link: '#/meu-plano', feature_flag: true },
     { id: 'script', text: 'Script', icon: 'code.svg', link: '#/script', feature_flag: true },
 ]

@@ -445,11 +445,20 @@
                     <div class="table">
                         <div v-for="doador in doadores">
                             <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
-                            <span>{{ doador.name }}</span>
-                            <span>{{ doador.email }}</span>
-                            <span>{{ doador.tel }}</span>
+                            <span class="w-50">
+                                {{ doador.nome }} <br>
+                                {{ doador.email }} <br>
+                                {{ doador.telefone }} <br>
+                            </span>
                             <span>
-                                <a href="" class="table_btn" >
+                                <small>Dada Cadastro</small> <br>
+                                {{ doador.created_at | format_data }}
+                            </span>
+                            <span> 
+                                <span class="table_btn table_btn_status">Unico</span>                                 
+                            </span>
+                            <span>
+                                <a href="javascript:void(0)" class="table_btn" >
                                     <img src="./assets/icon/eye.svg">
                                 </a>
                             </span>
@@ -471,13 +480,28 @@
                     <div class="table">
                         <div v-for="doacao in doacoes">
                             <span><img class="gravatar" src="./assets/img/gravatar.png"></span>
-                            <span>{{ doacao.name }}</span>
-                            <span>{{ doacao.card }}</span>
-                            <span>{{ doacao.valid }}</span>
-                            <span>{{ doacao.recorrencia }}</span>
-                            <span>{{ doacao.type }}</span>
-                            <span>{{ doacao.data }}</span>
-                            <span>{{ doacao.price | is_price }}</span>
+                            <span>
+                                <small>Doador</small> <br>
+                                {{doacao.nome}}
+                            </span>
+                            <span>
+                                <small>Valor</small> <br>
+                                R$ {{doacao.valor}}
+                            </span>
+                            <span>
+                                <small>Status</small> <br>
+                                <span class="table_btn table_btn_status">Finalizado</span>
+                            </span>
+                            <span>
+                                <small>Data</small> <br>
+                                {{doacao.data}}
+                            </span>
+                            <span>
+                                <span class="table_btn table_btn_status">Cartão</span>
+                            </span>
+                            <span>
+                                <span class="table_btn table_btn_status">UNICO</span>
+                            </span>
                             <span>
                                 <span v-if="doacao.status">
                                     <img src="./assets/icon/success.svg" class="ico_status">
@@ -705,11 +729,6 @@
                                     <span>EDITAR</span>
                                 </a>
                             </span>
-                            <!-- <span>
-                                <a href="javascript:void(0)" @dblclick="apagar( plano.id )" class="table_btn table_btn--trash" title="Para acabar use duplo click">
-                                    <img src="./assets/icon/trash.svg">
-                                </a>
-                            </span> -->
                         </div>                        
                     </div>
                 </div>

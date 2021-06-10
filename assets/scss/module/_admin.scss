@@ -202,3 +202,11 @@
     font-size: 11px;
     pointer-events: none;
 }
+.table_btn_status {
+    color: $azul;
+    border: 2px solid $azul;
+    background-color: transparent;
+    font-weight: 700;
+    padding: 7px 14px;
+    pointer-events: none;
+}

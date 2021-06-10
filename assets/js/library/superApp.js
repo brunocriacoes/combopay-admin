@@ -93,6 +93,11 @@ class App {
     async get_doador_by_institution_id(id) {
         return await this.get(`/doador/por-instituicao/${id}`, {})
     }
+    
+    async all_doacao() {
+        return await this.get(`/doacoes`, {})
+    }
+    
     async all_doadores() {
         return await this.get(`/doadores`, {})
     }
